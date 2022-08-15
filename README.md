@@ -1,2 +1,3 @@
 # Calender-App
-Authors: Evan Gianopoli and Cleveland Plonsey
+
+Authors: Evan Giampaoli and Cleveland Plonsey
