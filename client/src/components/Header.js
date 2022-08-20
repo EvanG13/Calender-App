@@ -3,7 +3,7 @@
 const Header = (props) => {
   return (
     <header className="Header">
-      <h1>TODO : Header {props.month} {props.year}</h1>
+      <h1>{props.yearNum}</h1>
       
     </header>
   );

@@ -1,13 +1,18 @@
 import Month from "./Month";
 
 const Year = (props) => {
-    /* TODO Implement having multiple years */
-    // Currently : Year = 2022
+
+    function leapYear(year)
+{
+  return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
+};
+
+let febNumDays = (leapYear(props.yearNum)) ? 29 : 28;
     return (
         <div className="Year">
             <h2>{props.year}</h2>
             <Month name="January" numDays={31}/>
-            <Month name="February" numDays={28}/>
+            <Month name="February" numDays={febNumDays}/>
             <Month name="March" numDays={31}/>
             <Month name="April" numDays={30}/>
             <Month name="May" numDays={31}/>

@@ -1,12 +1,12 @@
 import './App.css';
-import Header from './components/Header';
-import Year from './components/Year';
+import Calendar from './components/Calendar';
+
+
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
-      <Year /> 
+      <Calendar yearNum={2020} />
     </div>
   );
 }
