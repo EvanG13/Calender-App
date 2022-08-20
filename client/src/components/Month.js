@@ -2,16 +2,51 @@ import Day from './Day';
 
 const Month = (props) => {
     var days = [];
-    for (let day = 1; day <= props.numDays; ++day) {
-        days.push(day); 
+    for(let j = 0; j<5; j++){
+        let currWeek = [];
+        for (let i = 1; i <= 7; ++i) {
+            let dayValue = i + (7*j) //calculate the day value
+            if(dayValue > props.numDays){
+                dayValue -= props.numDays;
+            }
+            currWeek.push(dayValue); 
+        }
+        days.push(currWeek);
     }
+   
     
     return (
-        <div className="Month">
+        <div className="month">
             <h2>{props.name}</h2>
-            {days.map((d,key) => {
-                return <Day dayNum={d} key={d}/>;
-            })}
+            <div className='week'>
+                {days[0].map((d,key) => {
+                    return <Day dayNum={d} key={d}/>;
+                })}
+            </div>
+
+            <div className='week'>
+                {days[1].map((d) => {
+                    return <Day dayNum={d} key={d}/>;
+                })}
+            </div>
+
+            <div className='week'>
+                {days[2].map((d) => {
+                    return <Day dayNum={d} key={d}/>;
+                })}
+            </div>
+
+            <div className='week'>
+                {days[3].map((d) => {
+                    return <Day dayNum={d} key={d}/>;
+                })}
+            </div>
+
+            <div className='week'>
+                {days[4].map((d) => {
+                    return <Day dayNum={d} key={d}/>;
+                })}
+            </div>
         </div>
     );
 }
