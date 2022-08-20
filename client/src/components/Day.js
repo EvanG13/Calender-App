@@ -18,10 +18,10 @@ const Day = (props) => {
 
     return (
         <div className="day-container">
-            <p> {props.dayNum}</p>
+            <p className='day-num'> {props.dayNum}</p>
             {eventList.map(
                 (element, index) => <DayEvent handleClick = {() => {deleteEvent(element, element.key)}} eventTitle = {element.title} key={element.key}/>)}
-            <button onClick={createEvent}>Create Event</button>
+            <button className='create-event-button' onClick={createEvent}>Create Event</button>
         </div>
     );
 }
