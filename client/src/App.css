@@ -12,7 +12,7 @@
 .App {
     height: 100vh;
     width: 100vw;
-    background-color: #478559;
+    background-color: white;
     overflow-y: scroll;
     -ms-overflow-style: none;  /* Internet Explorer 10+ hide scroll bar*/
     scrollbar-width: none;  /* Firefox */
@@ -34,11 +34,12 @@ h1, h2{
 .day-event{
     display: flex;
     flex-direction: row;
-    height: 10%;
+    height: 7%;
     width: 75%;
     align-items: center;
     justify-content: space-between;
     margin-left: 5px;
+    
 }
 
 .delete-day-event{
@@ -58,8 +59,11 @@ h1, h2{
 .day-container{
     border: 1px solid black;
     width: calc(100vw / 10);
-    height:fit-content;
+    height:150px;
     background-color: #f95d9b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .day-num{
@@ -72,6 +76,13 @@ h1, h2{
     background-color: #39a0ca;
     border-left: none;
     border-bottom: 1px;
+    width: 50%;
+    height: 20%;
+    font-size: 10px;
+}
+
+.show-more-icon{
+    
 }
 
 /* END DAY COMPONENT */
@@ -91,7 +102,8 @@ h1, h2{
     flex-direction: column;
     justify-content: space-between;
     height: fit-content;
-    margin-left: 10%;
-    padding: 10px;
+    margin-right: 10%;
+    padding: 40px;
+    background-image: linear-gradient(to right, #478559, white);
 }
 /*END MONTH COMPONENT */

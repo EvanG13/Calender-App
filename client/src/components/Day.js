@@ -1,7 +1,9 @@
 import {React, useState} from 'react';
 import DayEvent from './DayEvent';  
+import MoreIcon from './MoreIcon';
 
 const Day = (props) => {
+    
     let [eventList, setEventList] = useState([]);
     const createEvent = () =>{ //creates a dayEvent object and updates the state to hold it.
         let eventName = prompt("Input the name of the event you wish to create"); //wait for user to name event and store it to eventName
@@ -16,9 +18,16 @@ const Day = (props) => {
 
     return (
         <div className="day-container">
-            <p className='day-num'> {props.dayNum}</p>
+            <p className='day-num'> {props.dayNum}</p> 
             {eventList.map(
-                (element, index) => <DayEvent handleClick = {() => {deleteEvent(element, element.key)}} eventTitle = {element.title} key={element.key}/>)}
+                (element, index) => {
+                if(index < 2){
+                    return <DayEvent handleClick = {() => {deleteEvent(element, element.key)}} eventTitle = {element.title} key={element.key}/>;
+                }
+                return null;
+                })}
+
+            <MoreIcon visible={eventList.length > 2 ? true : false }/>
             <button className='create-event-button' onClick={createEvent}>Create Event</button>
         </div>
     );
