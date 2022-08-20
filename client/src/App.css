@@ -12,12 +12,51 @@
 .App {
     height: 100vh;
     width: 100vw;
+    background-color: #478559;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ hide scroll bar*/
+    scrollbar-width: none;  /* Firefox */
 }
+.App::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.Header{
+    margin-left: 5%;
+}
+
+h1, h2{
+    color: #161748;
+}
+
+/* START DAYEVENT COMPONENT */
+
+.day-event{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    width: 75%;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5px;
+}
+
+.delete-day-event{
+    height: fit-content;
+    width:fit-content;
+    background-color: red;
+}
+
+.delete-day-event:hover{
+    background-color: darkred;
+}
+
+/* END DAYEVENT COMPONENT */
 
 /* START DAY COMPONENT */
 
 .day-container{
-    border: 3px solid black;
+    border: 1px solid black;
     width: calc(100vw / 10);
     height:fit-content;
     background-color: #f95d9b;
@@ -31,6 +70,8 @@
 
 .create-event-button{
     background-color: #39a0ca;
+    border-left: none;
+    border-bottom: 1px;
 }
 
 /* END DAY COMPONENT */
