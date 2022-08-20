@@ -6,7 +6,7 @@ import Calendar from './components/Calendar';
 const App = () => {
   return (
     <div className="App">
-      <Calendar yearNum={2020} />
+      <Calendar yearNum={2022} />
     </div>
   );
 }

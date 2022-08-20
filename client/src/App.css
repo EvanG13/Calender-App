@@ -46,6 +46,7 @@ h1, h2{
     height: fit-content;
     width:fit-content;
     background-color: red;
+    font-size: 7px;
 }
 
 .delete-day-event:hover{
@@ -82,7 +83,7 @@ h1, h2{
 }
 
 .show-more-icon{
-    
+    margin:0;
 }
 
 /* END DAY COMPONENT */

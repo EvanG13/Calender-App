@@ -1,10 +1,12 @@
 import {React, useState} from 'react';
 import DayEvent from './DayEvent';  
 import MoreIcon from './MoreIcon';
-
+import { dateIsPassed, isCurrentDate, getDayOfWeek } from '../helperFunctions/dateFunctions';
 const Day = (props) => {
     
     let [eventList, setEventList] = useState([]);
+    let bgcolor;
+    let dayOfWeek = getDayOfWeek({year: props.year, month: props.month, day: props.dayNum});
     const createEvent = () =>{ //creates a dayEvent object and updates the state to hold it.
         let eventName = prompt("Input the name of the event you wish to create"); //wait for user to name event and store it to eventName
         let eventToBeAdded = {title: eventName, key: eventList.length}; //give each DayEvent object a key based on the length of the current list
@@ -17,8 +19,8 @@ const Day = (props) => {
     }
 
     return (
-        <div className="day-container">
-            <p className='day-num'> {props.dayNum}</p> 
+        <div className="day-container" backgroundColor = {bgcolor}>
+            <p className='day-num'> {props.dayNum}    {dayOfWeek}</p> 
             {eventList.map(
                 (element, index) => {
                 if(index < 2){

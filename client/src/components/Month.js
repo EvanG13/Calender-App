@@ -1,5 +1,6 @@
 import Day from './Day';
 
+
 const Month = (props) => {
     var days = [];
     for(let j = 0; j<5; j++){
@@ -14,37 +15,37 @@ const Month = (props) => {
         days.push(currWeek);
     }
    
-    
+    //TODO: refactor the return statement into a nested map function
     return (
         <div className="month">
             <h2>{props.name}</h2>
             <div className='week'>
                 {days[0].map((d,key) => {
-                    return <Day dayNum={d} key={d}/>;
+                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
                 })}
             </div>
 
             <div className='week'>
                 {days[1].map((d) => {
-                    return <Day dayNum={d} key={d}/>;
+                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
                 })}
             </div>
 
             <div className='week'>
                 {days[2].map((d) => {
-                    return <Day dayNum={d} key={d}/>;
+                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
                 })}
             </div>
 
             <div className='week'>
                 {days[3].map((d) => {
-                    return <Day dayNum={d} key={d}/>;
+                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
                 })}
             </div>
 
             <div className='week'>
                 {days[4].map((d) => {
-                    return <Day dayNum={d} key={d}/>;
+                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
                 })}
             </div>
         </div>
