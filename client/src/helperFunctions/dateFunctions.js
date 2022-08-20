@@ -1,22 +1,23 @@
 
 
-export const dateIsPassed = (date) =>{ //takes a date object {year: . month: , day: , } and compares it with the current date returns false if the arg is bigger than the current date
+export const dateIsPassed = (date) => { //takes a date object {year: . month: , day: , } and compares it with the current date returns false if the arg is bigger than the current date
     const currentDate = new Date();
     const dateObj = new Date(date.year, date.month, date.day);
-    return ((currentDate.getTime() - dateObj.getTime()) > 0)
+    return ((currentDate.getTime() - dateObj.getTime()) > 0);
 }
 
-export const isCurrentDate = (date) =>{
+export const isCurrentDate = (date) => {
     const currentDate = new Date();
     const dateObj = new Date(date.year, date.month, date.day);
     return currentDate === dateObj;
 }
 
-export const getDayOfWeek = (date) =>{
+export const getDayOfWeek = (date) => {
     const dateObj = new Date(date.year, date.month, date.day);
     console.log(date.year, date.month, date.day);
+
     let dayOfWeek;
-    switch(dateObj.getDay()){
+    switch(dateObj.getDay()) {
         case 3:
             dayOfWeek = 'Sunday';
             break;
@@ -42,6 +43,7 @@ export const getDayOfWeek = (date) =>{
             console.log("problem getting day of week.");
             console.log("recieved:" + dateObj.getDay());
     }
+
     return dayOfWeek;
 }
 
