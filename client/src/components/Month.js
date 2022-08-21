@@ -9,11 +9,11 @@ const Month = (props) => {
         for (let i = 1; i <= 7; ++i) {
             let dayValue = i + ( 7 * j); //calculate the day value
             if (dayValue > props.numDays) {
-              //  dayValue -= props.numDays;
+                //dayValue -= props.numDays;
                 //currWeek.push([dayValue, props.month+1]); 
             }
             else{
-                currWeek.push([dayValue, props.month]); 
+                currWeek.push(dayValue); 
             }
         }
         days.push(currWeek);
@@ -26,8 +26,8 @@ const Month = (props) => {
                 
             {days.map((week,key) => {
                 return (
-                    <div className='week'>
-                        {week.map(d => <Day dayNum={d[0]} key={d[0]} year = {props.year} month = {d[1]}/>)}
+                    <div className='week' key={key+1}>
+                        {week.map(d => <Day dayNum={d} key={d + "" + props.month + "" + props.year} year = {props.year} month = {props.month}/>)}
                     </div>
                     );
                 })}
