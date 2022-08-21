@@ -2,12 +2,14 @@ import {React, useState} from 'react';
 import DayEvent from './DayEvent';  
 import MoreIcon from './MoreIcon';
 import { dateIsPassed, isCurrentDate, getDayOfWeek } from '../helperFunctions/dateFunctions';
+import generateBgColor from "../helperFunctions/generateBgcolor";
 
 const Day = (props) => {
     
     let [eventList, setEventList] = useState([]);
-    let bgcolor;
+   
     let dayOfWeek = getDayOfWeek({year: props.year, month: props.month, day: props.dayNum});
+    let bgColor = generateBgColor(dayOfWeek, dateIsPassed({year: props.year, month: props.month, day: props.dayNum}));
     const createEvent = () => { //creates a dayEvent object and updates the state to hold it.
         let eventName = prompt("Input the name of the event you wish to create"); //wait for user to name event and store it to eventName
         if(eventName.trim().length >0){ //make sure the user actually entered a valid event title
@@ -22,12 +24,15 @@ const Day = (props) => {
     }
 
     return (
-        <div className="day-container" backgroundColor = {bgcolor}>
+        <div className="day-container"  style ={bgColor}>
             <p className='day-num'> {props.dayNum}    {dayOfWeek}</p> 
             {eventList.map(
                 (element, index) => {
                 if(index < 2){
-                    return <DayEvent handleClick = {() => {deleteEvent(element, element.key)}} eventTitle = {element.title} key={element.key}/>;
+                    return <DayEvent handleClick = {() => {deleteEvent(element, element.key)}} 
+                    eventTitle = {element.title} 
+                    key={element.key}
+                   />;
                 }
                 return null;
                 })}
