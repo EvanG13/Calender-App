@@ -8,8 +8,8 @@ const Day = (props) => {
     
     let [eventList, setEventList] = useState([]);
    
-    let dayOfWeek = getDayOfWeek({year: props.year, month: props.month, day: props.dayNum});
-    let bgColor = generateBgColor(dayOfWeek, dateIsPassed({year: props.year, month: props.month, day: props.dayNum}));
+    let dayOfWeek = getDayOfWeek({year: props.year, month: props.month-1, day: props.dayNum});
+    let bgColor = generateBgColor(dayOfWeek, dateIsPassed({year: props.year, month: props.month-1, day: props.dayNum+1}), isCurrentDate({year: props.year, month: props.month-1, day: props.dayNum}));
     const createEvent = () => { //creates a dayEvent object and updates the state to hold it.
         let eventName = prompt("Input the name of the event you wish to create"); //wait for user to name event and store it to eventName
         if(eventName.trim().length >0){ //make sure the user actually entered a valid event title
