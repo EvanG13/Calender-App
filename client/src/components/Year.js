@@ -1,12 +1,9 @@
 import Month from "./Month";
+import { isLeapYear } from "../helperFunctions/dateFunctions";
 
 const Year = (props) => {
 
-function leapYear(year) {
-    return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
-};
-
-let febNumDays = (leapYear(props.yearNum)) ? 29 : 28;
+    let febNumDays = (isLeapYear(props.yearNum)) ? 29 : 28; //calculate the number of days in February based on if the year is a leap year.
     return (
         <div className="Year">
             <h2>{props.year}</h2>
