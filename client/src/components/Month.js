@@ -3,14 +3,18 @@ import Day from './Day';
 
 const Month = (props) => {
     var days = [];
+   
     for (let j = 0; j < 5; ++j) {
         let currWeek = [];
         for (let i = 1; i <= 7; ++i) {
             let dayValue = i + ( 7 * j); //calculate the day value
             if (dayValue > props.numDays) {
-                dayValue -= props.numDays;
+              //  dayValue -= props.numDays;
+                //currWeek.push([dayValue, props.month+1]); 
             }
-            currWeek.push(dayValue); 
+            else{
+                currWeek.push([dayValue, props.month]); 
+            }
         }
         days.push(currWeek);
     }
@@ -19,35 +23,14 @@ const Month = (props) => {
     return (
         <div className="month">
             <h2>{props.name}</h2>
-            <div className='week'>
-                {days[0].map((d,key) => {
-                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
+                
+            {days.map((week,key) => {
+                return (
+                    <div className='week'>
+                        {week.map(d => <Day dayNum={d[0]} key={d[0]} year = {props.year} month = {d[1]}/>)}
+                    </div>
+                    );
                 })}
-            </div>
-
-            <div className='week'>
-                {days[1].map((d) => {
-                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
-                })}
-            </div>
-
-            <div className='week'>
-                {days[2].map((d) => {
-                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
-                })}
-            </div>
-
-            <div className='week'>
-                {days[3].map((d) => {
-                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
-                })}
-            </div>
-
-            <div className='week'>
-                {days[4].map((d) => {
-                    return <Day dayNum={d} key={d} year = {props.year} month = {props.month}/>;
-                })}
-            </div>
         </div>
     );
 }
