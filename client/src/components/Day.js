@@ -9,8 +9,10 @@ const Day = (props) => {
     let dayOfWeek = getDayOfWeek({year: props.year, month: props.month, day: props.dayNum});
     const createEvent = () =>{ //creates a dayEvent object and updates the state to hold it.
         let eventName = prompt("Input the name of the event you wish to create"); //wait for user to name event and store it to eventName
-        let eventToBeAdded = {title: eventName, key: eventList.length}; //give each DayEvent object a key based on the length of the current list
-        setEventList([...eventList, eventToBeAdded]); //add the new event to the state array
+        if(eventName.trim().length >0){ //make sure the user actually entered a valid event title
+            let eventToBeAdded = {title: eventName, key: eventList.length}; //give each DayEvent object a key based on the length of the current list
+            setEventList([...eventList, eventToBeAdded]); //add the new event to the state array
+        }
     }
 
     const deleteEvent = (e, key) =>{ //deletes a dayevent object from the state array

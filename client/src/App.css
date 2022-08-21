@@ -23,6 +23,13 @@
 
 .Header{
     margin-left: 5%;
+    
+}
+.header-year-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 25%;
 }
 
 h1, h2{

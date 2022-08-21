@@ -1,18 +1,18 @@
+//helper functions that deal with the js Date object. They all take a date object {year: , month: , day: , } 
 
-
-export const dateIsPassed = (date) =>{ //takes a date object {year: . month: , day: , } and compares it with the current date returns false if the arg is bigger than the current date
+export const dateIsPassed = (date) =>{ //takes date object compares it with the current date returns false if the obj is bigger than the current date
     const currentDate = new Date();
     const dateObj = new Date(date.year, date.month, date.day);
     return ((currentDate.getTime() - dateObj.getTime()) > 0)
 }
 
-export const isCurrentDate = (date) =>{
+export const isCurrentDate = (date) =>{ //checks if the date obj arg is the current date
     const currentDate = new Date();
     const dateObj = new Date(date.year, date.month, date.day);
     return currentDate === dateObj;
 }
 
-export const getDayOfWeek = (date) =>{
+export const getDayOfWeek = (date) =>{ //converts the date object into a week day and returns as a string
     const dateObj = new Date(date.year, date.month, date.day);
     console.log(date.year, date.month, date.day);
     let dayOfWeek;
@@ -44,5 +44,7 @@ export const getDayOfWeek = (date) =>{
     }
     return dayOfWeek;
 }
+
+
 
 
