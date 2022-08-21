@@ -10,18 +10,16 @@ const App = () => {
   const [currentYear, setCurrentYear] = useState(startingYear); //start app viewing the current year.
 
 
-  const backYear = () =>{
+  const backYear = () =>{ //moves user view back a year
     setCurrentYear(currentYear-1);
   }
   
-  const forwardYear = ( ) =>{
+  const forwardYear = ( ) =>{ //moves a user view forward a year
     setCurrentYear(currentYear + 1);
   }
 
-
   return (
     <div className="App">
-      
       <Calendar yearNum={currentYear} backYear = {backYear} forwardYear = {forwardYear}/>
     </div>
   );
