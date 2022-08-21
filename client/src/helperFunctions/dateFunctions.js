@@ -3,40 +3,42 @@
 export const dateIsPassed = (date) =>{ //takes date object compares it with the current date returns false if the obj is bigger than the current date
     const currentDate = new Date();
     const dateObj = new Date(date.year, date.month, date.day);
-    return ((currentDate.getTime() - dateObj.getTime()) > 0);
+    return (currentDate > dateObj);
 }
 
 export const isCurrentDate = (date) =>{ //checks if the date obj arg is the current date
-    const currentDate = new Date();
+    let currentDate = new Date();
+    currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate()); 
     const dateObj = new Date(date.year, date.month, date.day);
-    return currentDate === dateObj;
+    console.log(dateObj.getTime(), currentDate.getTime());
+    return ((currentDate.getTime() === dateObj.getTime()));
 }
 
 export const getDayOfWeek = (date) =>{ //converts the date object into a week day and returns as a string
     const dateObj = new Date(date.year, date.month, date.day);
-    console.log(date.year, date.month, date.day);
+   
 
     let dayOfWeek;
     switch(dateObj.getDay()) {
-        case 3:
+        case 0:
             dayOfWeek = 'Sunday';
             break;
-        case 4:
+        case 1:
             dayOfWeek = 'Monday';
             break;
-        case 5:
+        case 2:
             dayOfWeek = 'Tuesday';
             break;
-        case 6:
+        case 3:
             dayOfWeek = 'Wednesday';
             break;
-        case 0:
+        case 4:
             dayOfWeek = 'Thursday';
             break; 
-        case 1:
+        case 5:
             dayOfWeek = 'Friday';
             break;
-        case 2:
+        case 6:
             dayOfWeek = 'Saturday';
             break;
         default:
@@ -47,7 +49,7 @@ export const getDayOfWeek = (date) =>{ //converts the date object into a week da
     return dayOfWeek;
 }
 
-export function isLeapYear(year) {
+export function isLeapYear(year) { //returns true if year is a leap year
     return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
 };
 
