@@ -3,11 +3,11 @@ import Day from './Day';
 
 const Month = (props) => {
     var days = [];
-    for(let j = 0; j<5; j++){
+    for (let j = 0; j < 5; ++j) {
         let currWeek = [];
         for (let i = 1; i <= 7; ++i) {
-            let dayValue = i + (7*j) //calculate the day value
-            if(dayValue > props.numDays){
+            let dayValue = i + ( 7 * j); //calculate the day value
+            if (dayValue > props.numDays) {
                 dayValue -= props.numDays;
             }
             currWeek.push(dayValue); 

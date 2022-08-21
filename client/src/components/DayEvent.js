@@ -1,6 +1,6 @@
 
 
-const DayEvent = (props) =>{
+const DayEvent = (props) => {
     return (
         <div className='day-event'>
             <p className='day-event-title'>
